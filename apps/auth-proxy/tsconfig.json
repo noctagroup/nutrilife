@@ -1,0 +1,4 @@
+{
+  "extends": "@nutrilife/tsconfig/base.json",
+  "include": ["routes"]
+}
