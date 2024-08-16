@@ -1,12 +1,10 @@
 {
   "name": "nutrilife",
   "private": true,
-  "packageManager": "pnpm@9.7.0",
   "engines": {
     "node": ">=20.16.0"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "lint": "eslint ."
   },
   "devDependencies": {
