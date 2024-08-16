@@ -1,14 +1,15 @@
 {
   "name": "nutrilife",
   "private": true,
+  "packageManager": "pnpm@9.7.0",
   "engines": {
     "node": ">=20.16.0"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@types/node": "^22.4.0",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
     "eslint": "8.57.0",
@@ -20,11 +21,6 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "prettier": "3.3.3",
-    "tsx": "^4.17.0",
-    "typescript": "^5.5.4"
-  },
-  "dependencies": {
-    "fastify": "^4.28.1"
+    "prettier": "3.3.3"
   }
 }

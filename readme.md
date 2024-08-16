@@ -1,6 +1,7 @@
 # nutrilife
 
 ```sh
-npm install
-npm run dev
+npm i -g 'pnpm@9.7.0'
+pnpm install
+pnpm dev
 ```

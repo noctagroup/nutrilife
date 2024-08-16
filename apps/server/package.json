@@ -1,0 +1,14 @@
+{
+  "name": "@nutrilife/server",
+  "private": true,
+  "scripts": {
+    "dev": "tsx src/main.ts"
+  },
+  "dependencies": {
+    "fastify": "^4.28.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.17.0",
+    "typescript": "catalog:"
+  }
+}
