@@ -41,9 +41,7 @@
           "version": "detect"
         },
         "import/resolver": {
-          "typescript": {
-            "project": "./tsconfig.app.json"
-          }
+          "typescript": {}
         }
       },
       "rules": {
@@ -60,8 +58,7 @@
         "import/internal-regex": "^~/",
         "import/resolver": {
           "typescript": {
-            "alwaysTryTypes": true,
-            "project": "./tsconfig.app.json"
+            "alwaysTryTypes": true
           }
         }
       }

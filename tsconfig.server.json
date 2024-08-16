@@ -1,0 +1,21 @@
+{
+  "include": ["./apps/server/**/*"],
+
+  "compilerOptions": {
+    "strict": true,
+
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["es2023"],
+    "target": "es2022",
+    "types": ["node"],
+
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.server.tsbuildinfo",
+
+    "noEmit": true,
+    "noErrorTruncation": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
