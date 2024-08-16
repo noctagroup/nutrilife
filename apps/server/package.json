@@ -1,0 +1,13 @@
+{
+  "name": "@nutrilife/server",
+  "private": true,
+  "scripts": {
+    "server:dev": "tsx src/main.ts"
+  },
+  "dependencies": {
+    "fastify": "^4.28.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.4.0"
+  }
+}

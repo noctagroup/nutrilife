@@ -1,0 +1,70 @@
+{
+  "root": true,
+
+  "plugins": ["simple-import-sort"],
+
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "plugin:import/recommended"],
+
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  },
+
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2020": true
+  },
+
+  "ignorePatterns": ["dist", "node_modules", ".git"],
+
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "overrides": [
+    {
+      "files": "**/*.{j,t}s?(x)",
+      "plugins": ["react", "jsx-a11y"],
+      "extends": [
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended"
+      ],
+      "settings": {
+        "react": {
+          "version": "detect"
+        },
+        "import/resolver": {
+          "typescript": {
+            "project": "./tsconfig.app.json"
+          }
+        }
+      },
+      "rules": {
+        "react/prop-types": "off"
+      }
+    },
+
+    {
+      "files": "**/*.ts?(x)",
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": ["plugin:@typescript-eslint/recommended", "plugin:import/typescript"],
+      "settings": {
+        "import/internal-regex": "^~/",
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true,
+            "project": "./tsconfig.app.json"
+          }
+        }
+      }
+    }
+  ]
+}
