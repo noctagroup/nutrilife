@@ -2,7 +2,8 @@
   "name": "@nutrilife/server",
   "private": true,
   "scripts": {
-    "dev": "tsx src/main.ts"
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "dev": "tsx watch src/main.ts"
   },
   "dependencies": {
     "fastify": "^4.28.1"
