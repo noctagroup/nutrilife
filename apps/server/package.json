@@ -9,6 +9,7 @@
     "fastify": "^4.28.1"
   },
   "devDependencies": {
+    "pino-pretty": "^11.2.2",
     "tsx": "^4.17.0",
     "typescript": "catalog:"
   }

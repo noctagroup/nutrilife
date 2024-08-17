@@ -1,6 +1,5 @@
 services:
   postgres:
-    # Vale a pena usar um Postgis futuramente? Será necessário guardar dados geográficos?
     image: postgres:16-alpine
     ports:
       - 5432:5432
