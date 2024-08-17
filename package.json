@@ -10,8 +10,7 @@
     "clean": "git clean -xdf node_modules .turbo",
     "clean:ws": "turbo run clean",
     "lint": "eslint .",
-    "dev": "turbo watch dev",
-    "lint:ws": "pnpm dlx sherif@latest"
+    "dev": "turbo watch dev"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.1.0",

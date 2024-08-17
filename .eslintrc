@@ -28,6 +28,28 @@
 
   "overrides": [
     {
+      "files": "./apps/mobile/**/*",
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "project": "./apps/mobile/tsconfig.json"
+          }
+        }
+      }
+    },
+
+    {
+      "files": "./apps/server/**/*",
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "project": "./apps/server/tsconfig.json"
+          }
+        }
+      }
+    },
+
+    {
       "files": "**/*.{j,t}s?(x)",
       "plugins": ["react", "jsx-a11y"],
       "extends": [
@@ -38,7 +60,7 @@
       ],
       "settings": {
         "react": {
-          "version": "detect"
+          "version": "18.2"
         },
         "import/resolver": {
           "typescript": {}
