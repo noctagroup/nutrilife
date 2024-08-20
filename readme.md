@@ -36,7 +36,7 @@ tendo como exemplo o `package.json` do client:
 para adicionar uma nova dependência, é necessário usar o seguinte comando:
 
 ```sh
-pnpm install --filter '<nome_do_pacote>' dep_1 dep_2 dep_3
+pnpm install --filter '<nome_do_projeto_dentro_do_package_json>' dep_1 dep_2 dep_3
 ```
 
 levando como exemplo o projeto mobile, para adicionar a dependência `@tanstack/react-query` seria assim:
