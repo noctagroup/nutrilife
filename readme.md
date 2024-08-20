@@ -9,7 +9,9 @@ pnpm install
 
 ## como rodar o projeto?
 
-como estamos usando o [turborepo](https://turbo.build/repo/docs), subir todo o projeto foi extremamente facilitado, ao usar os comandos abaixo ç
+como estamos usando o [turborepo](https://turbo.build/repo/docs), subir todo o projeto foi extremamente facilitado.
+
+ao usar um único comando, você terá rodando o todos os projetos em `apps/`, que até o momento são o aplicativo `mobile` e o `server`.
 
 ```sh
 pnpm dev
