@@ -28,28 +28,6 @@
 
   "overrides": [
     {
-      "files": "./apps/mobile/**/*",
-      "settings": {
-        "import/resolver": {
-          "typescript": {
-            "project": "./apps/mobile/tsconfig.json"
-          }
-        }
-      }
-    },
-
-    {
-      "files": "./apps/server/**/*",
-      "settings": {
-        "import/resolver": {
-          "typescript": {
-            "project": "./apps/server/tsconfig.json"
-          }
-        }
-      }
-    },
-
-    {
       "files": "**/*.{j,t}s?(x)",
       "plugins": ["react", "jsx-a11y"],
       "extends": [
@@ -81,6 +59,36 @@
         "import/resolver": {
           "typescript": {
             "alwaysTryTypes": true
+          }
+        }
+      }
+    },
+
+    {
+      "files": "./apps/mobile/**/*",
+      "parserOptions": {
+        "project": "tsconfig.json",
+        "tsconfigRootDir": "./apps/mobile/"
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "project": "./apps/mobile/tsconfig.json"
+          }
+        }
+      }
+    },
+
+    {
+      "files": "./apps/server/**/*",
+      "parserOptions": {
+        "project": "tsconfig.json",
+        "tsconfigRootDir": "./apps/server/"
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "project": "./apps/server/tsconfig.json"
           }
         }
       }
