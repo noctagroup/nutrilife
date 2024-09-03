@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import * as bcrypt from 'bcryptjs';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Usuario } from './usuario.entity';
-import { Repository } from 'typeorm';
-import { CriaUsuarioDTO } from './DTOs/criaUsuario.dto';
+import { Injectable } from "@nestjs/common"
+import { InjectRepository } from "@nestjs/typeorm"
+import * as bcrypt from "bcryptjs"
+import { Repository } from "typeorm"
+
+import { CriaUsuarioDTO } from "./DTOs/criaUsuario.dto"
+import { Usuario } from "./usuario.entity"
 
 @Injectable()
 export class UsuarioService {
@@ -14,12 +15,17 @@ export class UsuarioService {
 
   // Metodo para criar um usuario novo
   async criaUsuario(usuario: CriaUsuarioDTO): Promise<Usuario> {
-    usuario.senha = await bcrypt.hash(usuario.senha, 10);
-    const novoUsuario = this.repository.create(usuario);
-    const usuarioSalvo = await this.repository.save(novoUsuario);
+    usuario.senha = await bcrypt.hash(usuario.senha, 10)
+    const novoUsuario = this.repository.create(usuario)
+    const usuarioSalvo = await this.repository.save(novoUsuario)
 
     // Remover a senha do objeto antes de retornar
-    const { senha, ...resultadoSemSenha } = usuarioSalvo;
-    return resultadoSemSenha as Usuario;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { senha, ...resultadoSemSenha } = usuarioSalvo
+    return resultadoSemSenha as Usuario
+  }
+
+  async buscaUsuarioEmail(email: string): Promise<Usuario> {
+    return await this.repository.findOne({ where: { email: email } })
   }
 }

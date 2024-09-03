@@ -1,17 +1,17 @@
-import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm"
 
 @Entity()
 @Unique(["email"])
 export class Usuario {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column({ length: 100 })
-  nome: string;
+  nome: string
 
   @Column({ length: 100 })
-  email: string;
+  email: string
 
   @Column({ length: 50 })
-  senha: string;
+  senha: string
 }

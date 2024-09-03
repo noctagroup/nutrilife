@@ -1,15 +1,15 @@
-import { IsEmail, IsString, MaxLength } from "class-validator";
+import { IsEmail, IsString, MaxLength } from "class-validator"
 
 export class CriaUsuarioDTO {
   @IsString()
   @MaxLength(100)
-  nome: string;
+  nome: string
 
   @IsEmail()
   @MaxLength(100)
-  email: string;
+  email: string
 
   @IsString()
   @MaxLength(50)
-  senha: string;
+  senha: string
 }
