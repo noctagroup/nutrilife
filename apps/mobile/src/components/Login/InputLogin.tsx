@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     paddingStart: 10,
     borderBottomColor: "#9C121E",
     borderBottomWidth: 3,
-    marginBottom: 5,
+    marginBottom: 40,
     color: "#8F898D",
-    fontSize: 16,
-    marginStart: 30,
-    marginEnd: 30
+    fontSize: 14,
+    width: "100%"
+
   }
 })

@@ -1,25 +1,38 @@
 import React from "react"
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Image, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native"
 
 import InputLogin from "./InputLogin"
 import RedButton from "./RedButton"
+import Header from "./Header"
+import OutlinedButton from "./OutlineButton"
+import Footer from "./Footer"
 
 export default function FormularioLogin() {
   return (
-    <View style={{ backgroundColor: "#9C121E" }}>
-      <Image
-        source={require("../assets/images/logo-nutrilife.svg")}
-        style={{ alignSelf: "center", marginBottom: 20, marginTop: 30 }}
-      />
+    <View
+      style={{
+        backgroundColor: "#9C121E",
+        flex: 1,
+        justifyContent: "center",
+        alignContent: "center"
+      }}>
+      <Header />
       <View
         style={{
+          flex: 1,
           backgroundColor: "white",
           borderTopLeftRadius: 50,
-          borderTopEndRadius: 50
+          borderTopEndRadius: 50,
+          paddingStart: 40,
+          paddingEnd: 40,
+          paddingTop: 50,
+          alignItems: "center"
         }}>
         <InputLogin placeholder="Digite seu email" />
         <InputLogin placeholder="Digite sua senha" />
-        <RedButton/>
+        <RedButton />
+        <OutlinedButton />
+        <Footer/>
       </View>
     </View>
   )
