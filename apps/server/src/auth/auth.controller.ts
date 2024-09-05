@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, HttpStatus, Post, UnauthorizedException } from "@nestjs/common"
+import { Body, Controller, HttpCode, HttpStatus, Post } from "@nestjs/common"
 
 import { AuthService } from "./auth.service"
 import { LoginDTO } from "./DTOs/login.dto"
@@ -10,12 +10,6 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @Post("login")
   async login(@Body() loginDTO: LoginDTO): Promise<Record<string, unknown>> {
-    const usuario = await this.authService.validarUsuario(loginDTO.email, loginDTO.senha)
-
-    if (usuario) {
-      return await this.authService.login(usuario)
-    } else {
-      throw new UnauthorizedException()
-    }
+    return await this.authService.login(loginDTO.email, loginDTO.senha)
   }
 }

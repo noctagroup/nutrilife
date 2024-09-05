@@ -3,6 +3,8 @@ import { TypeOrmModule } from "@nestjs/typeorm"
 
 import { Alimento } from "./alimentos/alimentos.entity"
 import { AlimentosModule } from "./alimentos/alimentos.module"
+import { Anamnese } from "./anamnese/anamnese.entity"
+import { AnamneseModule } from "./anamnese/anamnese.module"
 import { AppController } from "./app.controller"
 import { AppService } from "./app.service"
 import { AuthModule } from "./auth/auth.module"
@@ -14,13 +16,14 @@ import { UsuarioModule } from "./usuario/usuario.module"
     TypeOrmModule.forRoot({
       type: "sqlite",
       database: "database.sqlite",
-      entities: [Alimento, Usuario],
+      entities: [Alimento, Usuario, Anamnese],
       synchronize: true
     }),
     AlimentosModule,
     AuthModule,
     UsuarioModule,
-    AuthModule
+    AuthModule,
+    AnamneseModule
   ],
   controllers: [AppController],
   providers: [AppService]

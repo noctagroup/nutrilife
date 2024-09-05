@@ -28,4 +28,8 @@ export class UsuarioService {
   async buscaUsuarioEmail(email: string): Promise<Usuario> {
     return await this.repository.findOne({ where: { email: email } })
   }
+
+  async buscaUsuarioId(id: number): Promise<Usuario> {
+    return await this.repository.findOne({ where: { id: id } })
+  }
 }

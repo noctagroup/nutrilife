@@ -5,7 +5,7 @@ import { UsuarioModule } from "src/usuario/usuario.module"
 import { AuthController } from "./auth.controller"
 import { AuthGuard } from "./auth.guard"
 import { AuthService } from "./auth.service"
-import { jwtConstants } from "./contants"
+import { jwtConstants } from "./constants"
 
 @Module({
   imports: [

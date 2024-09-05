@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm"
+import { Anamnese } from "src/anamnese/anamnese.entity"
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm"
 
 @Entity()
 @Unique(["email"])
@@ -14,4 +15,7 @@ export class Usuario {
 
   @Column({ length: 50 })
   senha: string
+
+  @OneToMany(() => Anamnese, (anamnese) => anamnese.usuario)
+  anamnese: Anamnese[]
 }

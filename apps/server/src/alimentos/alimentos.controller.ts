@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from "@nestjs/common"
+import { AuthGuard } from "src/auth/auth.guard"
 
 import { Alimento } from "./alimentos.entity"
 import { AlimentosService } from "./alimentos.service"
 import { AlimentoDTO } from "./DTOs/alimento.dto"
-import { AuthGuard } from "src/auth/auth.guard"
 
 @Controller("/alimentos")
 export class AlimentosController {
