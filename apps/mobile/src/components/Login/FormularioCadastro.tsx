@@ -6,17 +6,20 @@ import RedButton from "./RedButton"
 import Header from "./Header"
 import OutlinedButton from "./OutlineButton"
 import Footer from "./Footer"
+import InputNome from "./InputNome"
 
-export default function FormularioLogin() {
+export default function FormularioCadastro() {
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.whiteContainer}>
-        <InputLogin placeholder="Digite seu email" />
-        <InputLogin placeholder="Digite sua senha" />
+        <InputNome placeholder="Nome"/>
+        <InputLogin placeholder="Email" />
+        <InputLogin placeholder="Senha" />
+        <InputLogin placeholder="Confirmar Senha" />
         <RedButton />
-        <OutlinedButton buttonText={`Login pelo\nGoogle`} />
-        <View style={{ flexDirection: "row", marginTop: 150 }}>
+        <OutlinedButton buttonText={`Cadastro pelo\nGoogle`} />
+        <View style={{ flexDirection: "row", marginTop: 20 }}>
           <Footer />
         </View >
       </View>
