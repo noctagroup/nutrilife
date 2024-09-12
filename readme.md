@@ -2,10 +2,13 @@
 
 ## como instalar as deps do projeto?
 
-```sh
-npm i -g 'pnpm@9.7.0'
-pnpm install
-```
+### pré-requisitos
+
+- `node` na versão `lts/iron (20.x)`
+  - você encontra mais informações sobre a instalação nesse [link](https://nodejs.org/en/download/package-manager)
+- `pnpm` na versão `9.7.0`
+  - é um gerenciador de pacotes alternativo ao `npm`, o que traz diversos benefícios
+  - instale com o seguinte comando: `npm i -g 'pnpm@9.7.0'`
 
 ## como rodar o projeto?
 
@@ -14,6 +17,7 @@ como estamos usando o [turborepo](https://turbo.build/repo/docs), subir todo o p
 ao usar um único comando, você terá rodando o todos os projetos em `apps/`, que até o momento são o aplicativo `mobile` e o `server`.
 
 ```sh
+pnpm install
 pnpm dev
 ```
 
