@@ -1,16 +1,15 @@
-import { StyleSheet, Text } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 
 import { StepIndicator } from "@/components/AnamneseStepIndicator"
 import { CardFlex } from "@/components/CardFlex"
 import { PaginationButtons } from "@/components/NextPrevButtons"
-import { View } from "@/components/Themed"
 
-export default function AnamneseGenero() {
+export default function AnamnesisGender() {
   return (
     <View style={styles.containerPage}>
       <StepIndicator totalSteps={8} currentStep={2} />
       <View style={styles.containerContent}>
-        <Text style={styles.mainText}>Qual o seu sexo?</Text>
+        <Text style={styles.mainText}>Qual o seu sexo? </Text>
         <View style={styles.containerButtons}>
           <CardFlex selected={false} content="Masculino" />
           <CardFlex selected={true} content="Feminino" />
