@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from "react-native"
 
-import { StepIndicator } from "@/components/AnamneseStepIndicator"
-import { CardFlex } from "@/components/CardFlex"
-import { PaginationButtons } from "@/components/NextPrevButtons"
+import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
+import { CardFlex } from "@/components/Anamnese/CardFlex"
+import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
 
 export default function AnamnesisGender() {
   return (
