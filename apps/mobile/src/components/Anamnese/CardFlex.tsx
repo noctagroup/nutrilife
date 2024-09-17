@@ -1,10 +1,21 @@
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, TouchableOpacity } from "react-native"
 
-export function CardFlex({ content, selected }: { content: string; selected: boolean }) {
+export function CardFlex({
+  content,
+  selected,
+  onPress
+}: {
+  content: string
+  selected: boolean
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+  onPress: Function
+}) {
   return (
-    <View style={[styles.card, selected && styles.selectedCard]}>
+    <TouchableOpacity
+      style={[styles.card, selected && styles.selectedCard]}
+      onPress={() => onPress()}>
       <Text style={styles.content}>{content}</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 

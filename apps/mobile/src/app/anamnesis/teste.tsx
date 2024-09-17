@@ -1,5 +1,14 @@
-import AnamneseAtividade from "@/components/Anamnese/AnamneseAtividade"
+import { Text, View } from "react-native"
+
+import { useAnamnesis } from "@/context/AmnesisContext"
 
 export default function teste() {
-  return <AnamneseAtividade />
+  const { anamnesisData } = useAnamnesis()
+
+  return (
+    <View>
+      <Text>Data Nascimento: {anamnesisData.dateOfBirth}</Text>
+      <Text>Sexo: {anamnesisData.gender} </Text>
+    </View>
+  )
 }

@@ -3,6 +3,8 @@ import "react-native-reanimated"
 import { Stack } from "expo-router"
 import * as SplashScreen from "expo-splash-screen"
 
+import { AnamnesisProvider } from "@/context/AmnesisContext"
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary
@@ -18,7 +20,11 @@ SplashScreen.preventAutoHideAsync()
 export default function RootLayout() {
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
 
-  return <RootLayoutNav />
+  return (
+    <AnamnesisProvider>
+      <RootLayoutNav />
+    </AnamnesisProvider>
+  )
 }
 
 function RootLayoutNav() {

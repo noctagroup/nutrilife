@@ -10,7 +10,7 @@ export default function AnamnesisIndex() {
     "Para personalizar sua experiência e te entregar as melhores decisões nutricionais a equipe Nutrilife precisa te conhecer um pouco melhor."
 
   const handlePress = () => {
-    router.push("/anamnesis/teste")
+    router.push("/anamnesis/dataNascimento")
   }
 
   return (

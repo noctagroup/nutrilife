@@ -1,22 +1,40 @@
+import { useRouter } from "expo-router"
+import { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 
 import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
-import { CardFlex } from "@/components/Anamnese/CardFlex"
-import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
 import { InputData } from "@/components/Anamnese/InputData"
+import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
+import { useAnamnesis } from "@/context/AmnesisContext"
 
 export default function AnamneseDataNascimento() {
+  const router = useRouter()
+  const { setAnamnesisData } = useAnamnesis()
+
+  // Lift the date state to AnamneseDataNascimento
+  const [dateOfBirth, setDateOfBirth] = useState("")
+
+  const handlePress = () => {
+    if (dateOfBirth) {
+      setAnamnesisData({ dateOfBirth })
+      router.push("/anamnesis/genero")
+    } else {
+      alert("Please provide your date of birth")
+    }
+  }
+
   return (
     <View style={styles.containerPage}>
-      <StepIndicator totalSteps={8} currentStep={2} />
+      <StepIndicator totalSteps={8} currentStep={1} />
       <View style={styles.containerContent}>
         <Text style={styles.mainText}>Qual a sua data de nascimento?</Text>
         <View style={styles.containerButtons}>
-          <InputData selected={true} />
+          {/* Pass the state and setter to the InputData component */}
+          <InputData selected={true} date={dateOfBirth} setDate={setDateOfBirth} />
         </View>
       </View>
       <View style={styles.containerPagination}>
-        <PaginationButtons showNext={true} showPrevious={true} />
+        <PaginationButtons showNext={true} showPrevious={false} onNextPress={handlePress} />
       </View>
     </View>
   )

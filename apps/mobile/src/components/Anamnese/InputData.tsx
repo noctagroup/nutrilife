@@ -1,38 +1,43 @@
-import { useState } from "react";
-import { StyleSheet, TextInput, View, Text } from "react-native";
+import { useState } from "react"
+import { StyleSheet, Text, TextInput, View } from "react-native"
 
-export function InputData({ selected }: { selected: boolean }) {
-  const [date, setDate] = useState("");
-  const [error, setError] = useState("");
+interface InputDataProps {
+  selected: boolean
+  date: string
+  setDate: (date: string) => void
+}
+
+export function InputData({ selected, date, setDate }: InputDataProps) {
+  const [error, setError] = useState("")
 
   const handleDateChange = (text: string) => {
-    // Remove caracteres que não são números
-    const cleanText = text.replace(/[^0-9]/g, "");
+    // Remove non-numeric characters
+    const cleanText = text.replace(/[^0-9]/g, "")
 
-    // Formatar o texto para dd/mm/aaaa
+    // Format the text to dd/mm/yyyy
     if (cleanText.length <= 2) {
-      setDate(cleanText);
+      setDate(cleanText)
     } else if (cleanText.length <= 4) {
-      setDate(`${cleanText.slice(0, 2)}/${cleanText.slice(2)}`);
+      setDate(`${cleanText.slice(0, 2)}/${cleanText.slice(2)}`)
     } else if (cleanText.length <= 8) {
-      setDate(`${cleanText.slice(0, 2)}/${cleanText.slice(2, 4)}/${cleanText.slice(4)}`);
+      setDate(`${cleanText.slice(0, 2)}/${cleanText.slice(2, 4)}/${cleanText.slice(4)}`)
     }
 
-    // Validação básica da data no formato dd/mm/aaaa
+    // Basic validation of the date in the format dd/mm/yyyy
     if (cleanText.length === 8) {
-      const day = parseInt(cleanText.slice(0, 2), 10);
-      const month = parseInt(cleanText.slice(2, 4), 10);
-      const year = parseInt(cleanText.slice(4), 10);
+      const day = parseInt(cleanText.slice(0, 2), 10)
+      const month = parseInt(cleanText.slice(2, 4), 10)
+      const year = parseInt(cleanText.slice(4), 10)
 
       if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1000 || year > 9999) {
-        setError("Data inválida");
+        setError("Data inválida")
       } else {
-        setError("");
+        setError("")
       }
     } else {
-      setError("");
+      setError("")
     }
-  };
+  }
 
   return (
     <View>
@@ -46,7 +51,7 @@ export function InputData({ selected }: { selected: boolean }) {
       />
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -66,16 +71,16 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 4,
     fontWeight: "bold",
-    fontSize: 24,
+    fontSize: 24
   },
   selectedCard: {
     borderWidth: 2,
-    borderColor: "#9C121E",
+    borderColor: "#9C121E"
   },
   errorText: {
     color: "red",
     fontSize: 16,
     marginTop: 5,
-    textAlign: "center",
-  },
-});
+    textAlign: "center"
+  }
+})

@@ -13,8 +13,10 @@ export function PaginationButtons({
   onNextPress,
   onPreviousPress
 }: PaginationButtonsProps) {
+  const justifyContentStyle = showPrevious && showNext ? "space-between" : "center"
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { justifyContent: justifyContentStyle }]}>
       {showPrevious && (
         <TouchableOpacity style={styles.button} onPress={onPreviousPress}>
           <Text style={styles.buttonText}>{"<"}</Text>
@@ -32,7 +34,6 @@ export function PaginationButtons({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
     padding: 10,
