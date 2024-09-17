@@ -1,22 +1,28 @@
-import { StyleSheet, Text, View } from "react-native"
+import { useRouter } from "expo-router"
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
-import { CardFlex } from "@/components/Anamnese/CardFlex"
-import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
-import { InputData } from "@/components/Anamnese/InputData"
+import { CardBoasVindas } from "@/components/Anamnese/CardBoasVindas"
 
 export default function AnamnesisIndex() {
+  const router = useRouter()
+
+  const textoBoasVindas =
+    "Para personalizar sua experiência e te entregar as melhores decisões nutricionais a equipe Nutrilife precisa te conhecer um pouco melhor."
+
+  const handlePress = () => {
+    router.push("/anamnesis/teste")
+  }
+
   return (
     <View style={styles.containerPage}>
-      <StepIndicator totalSteps={8} currentStep={2} />
       <View style={styles.containerContent}>
-        <Text style={styles.mainText}>Qual a sua data de nascimento?</Text>
         <View style={styles.containerButtons}>
-          <InputData selected={true} />
+          <CardBoasVindas />
+          <Text style={styles.mainText}>{textoBoasVindas}</Text>
         </View>
-      </View>
-      <View style={styles.containerPagination}>
-        <PaginationButtons showNext={true} showPrevious={true} />
+        <TouchableOpacity style={styles.button} onPress={() => handlePress()}>
+          <Text style={styles.buttonText}>{"Bora lá!"}</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -27,16 +33,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F4F4F4",
     paddingHorizontal: 30,
-    paddingVertical: 15,
+    paddingVertical: 60,
     justifyContent: "space-between"
   },
   containerContent: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     width: "100%",
-    backgroundColor: "#F4F4F4",
-    gap: 20
+    height: "100%",
+    backgroundColor: "#F4F4F4"
   },
   containerButtons: {
     flexShrink: 1, // Allow shrinking based on its content
@@ -54,8 +60,28 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   mainText: {
-    fontSize: 24,
+    fontSize: 18,
     textAlign: "left",
     width: "100%"
+  },
+  button: {
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    backgroundColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "80%",
+    borderRadius: 15,
+    borderWidth: 0,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 4
+  },
+  buttonText: {
+    color: "#9C121E",
+    fontWeight: "bold",
+    fontSize: 16
   }
 })

@@ -4,7 +4,6 @@ import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
 import { CardFlex } from "@/components/Anamnese/CardFlex"
 import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
 
-
 export default function AnamneseGenero() {
   return (
     <View style={styles.containerPage}>
