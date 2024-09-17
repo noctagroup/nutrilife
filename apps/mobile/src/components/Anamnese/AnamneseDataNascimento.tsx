@@ -5,7 +5,7 @@ import { CardFlex } from "@/components/Anamnese/CardFlex"
 import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
 import { InputData } from "@/components/Anamnese/InputData"
 
-export default function AnamnesisIndex() {
+export default function AnamneseDataNascimento() {
   return (
     <View style={styles.containerPage}>
       <StepIndicator totalSteps={8} currentStep={2} />
