@@ -3,16 +3,16 @@ import { StyleSheet, Text, View } from "react-native"
 import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
 import { CardFlex } from "@/components/Anamnese/CardFlex"
 import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
+import { InputData } from "@/components/Anamnese/InputData"
 
 export default function AnamnesisIndex() {
   return (
     <View style={styles.containerPage}>
       <StepIndicator totalSteps={8} currentStep={2} />
       <View style={styles.containerContent}>
-        <Text style={styles.mainText}>Qual o seu sexo? </Text>
+        <Text style={styles.mainText}>Qual a sua data de nascimento?</Text>
         <View style={styles.containerButtons}>
-          <CardFlex selected={false} content="Masculino" />
-          <CardFlex selected={true} content="Feminino" />
+          <InputData />
         </View>
       </View>
       <View style={styles.containerPagination}>

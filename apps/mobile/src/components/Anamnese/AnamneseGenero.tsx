@@ -1,9 +1,9 @@
-import { StyleSheet, Text } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 
 import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
 import { CardFlex } from "@/components/Anamnese/CardFlex"
 import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
-import { View } from "@/components/Themed"
+
 
 export default function AnamneseGenero() {
   return (
