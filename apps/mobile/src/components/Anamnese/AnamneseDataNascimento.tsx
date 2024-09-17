@@ -12,14 +12,14 @@ export default function AnamneseDataNascimento() {
   const { setAnamnesisData } = useAnamnesis()
 
   // Lift the date state to AnamneseDataNascimento
-  const [dateOfBirth, setDateOfBirth] = useState("")
+  const [dataNasc, setDataNasc] = useState("")
 
   const handlePress = () => {
-    if (dateOfBirth) {
-      setAnamnesisData({ dateOfBirth })
+    if (dataNasc) {
+      setAnamnesisData({ dataNasc })
       router.push("/anamnesis/genero")
     } else {
-      alert("Please provide your date of birth")
+      alert("Por favor, adicione sua data de nascimento")
     }
   }
 
@@ -30,7 +30,7 @@ export default function AnamneseDataNascimento() {
         <Text style={styles.mainText}>Qual a sua data de nascimento?</Text>
         <View style={styles.containerButtons}>
           {/* Pass the state and setter to the InputData component */}
-          <InputData selected={true} date={dateOfBirth} setDate={setDateOfBirth} />
+          <InputData selected={true} date={dataNasc} setDate={setDataNasc} />
         </View>
       </View>
       <View style={styles.containerPagination}>

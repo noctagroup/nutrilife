@@ -1,19 +1,19 @@
 import React from "react"
-import { Image, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native"
+import { StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native"
 
-import InputLogin from "./InputLogin"
-import RedButton from "./RedButton"
-import Header from "./Header"
-import OutlinedButton from "./OutlineButton"
 import Footer from "./Footer"
+import Header from "./Header"
+import InputLogin from "./InputLogin"
 import InputNome from "./InputNome"
+import OutlinedButton from "./OutlineButton"
+import RedButton from "./RedButton"
 
 export default function FormularioCadastro() {
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.whiteContainer}>
-        <InputNome placeholder="Nome"/>
+        <InputNome placeholder="Nome" />
         <InputLogin placeholder="Email" />
         <InputLogin placeholder="Senha" />
         <InputLogin placeholder="Confirmar Senha" />
@@ -21,7 +21,7 @@ export default function FormularioCadastro() {
         <OutlinedButton buttonText={`Cadastro pelo\nGoogle`} />
         <View style={{ flexDirection: "row", marginTop: 20 }}>
           <Footer />
-        </View >
+        </View>
       </View>
     </View>
   )

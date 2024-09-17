@@ -1,4 +1,4 @@
-import { TextInput, StyleSheet, TextInputProps } from "react-native"
+import { StyleSheet, TextInput, TextInputProps } from "react-native"
 
 interface InputLoginProps extends TextInputProps {
   placeholder: string
@@ -18,6 +18,5 @@ const styles = StyleSheet.create({
     color: "#8F898D",
     fontSize: 14,
     width: "100%"
-
   }
 })

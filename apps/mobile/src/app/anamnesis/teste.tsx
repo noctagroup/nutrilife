@@ -7,8 +7,10 @@ export default function teste() {
 
   return (
     <View>
-      <Text>Data Nascimento: {anamnesisData.dateOfBirth}</Text>
-      <Text>Sexo: {anamnesisData.gender} </Text>
+      <Text>Data Nascimento: {anamnesisData.dataNasc}</Text>
+      <Text>Sexo: {anamnesisData.genero} </Text>
+      <Text>Altura: {anamnesisData.altura} </Text>
+      <Text>Peso: {anamnesisData.peso}</Text>
     </View>
   )
 }

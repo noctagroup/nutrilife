@@ -2,9 +2,10 @@ import { createContext, ReactNode, useContext, useState } from "react"
 
 // Define the shape of your anamnesis data
 interface AnamnesisData {
-  dateOfBirth: string
-  gender: string
-  // Add more fields as needed
+  dataNasc: string
+  genero: string
+  altura: string
+  peso: string
 }
 
 // Define the shape of the context
@@ -28,8 +29,10 @@ export const useAnamnesis = () => {
 // Provider component that wraps your app
 export const AnamnesisProvider = ({ children }: { children: ReactNode }) => {
   const [anamnesisData, setAnamnesisDataState] = useState<AnamnesisData>({
-    dateOfBirth: "",
-    gender: ""
+    dataNasc: "",
+    genero: "",
+    altura: "",
+    peso: ""
   })
 
   const setAnamnesisData = (data: Partial<AnamnesisData>) => {

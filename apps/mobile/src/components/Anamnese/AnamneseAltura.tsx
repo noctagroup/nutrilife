@@ -3,42 +3,50 @@ import { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 
 import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
-import { CardFlex } from "@/components/Anamnese/CardFlex"
 import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
 import { useAnamnesis } from "@/context/AmnesisContext"
 
-export default function AnamneseGenero() {
+import { InputNumber } from "./InputNumber"
+
+export default function AnamneseAltura() {
   const router = useRouter()
   const { setAnamnesisData } = useAnamnesis()
+  const [altura, setAltura] = useState("")
 
-  const [genero, setGenero] = useState("Masculino")
-
-  const handlePress = () => {
-    setAnamnesisData({ genero })
-    router.push("/anamnesis/altura")
+  const handlePreviousPress = () => {
+    router.push("/anamnesis/genero")
   }
 
+  const handleNextPress = () => {
+    if (altura) {
+      setAnamnesisData({ altura })
+      router.push("/anamnesis/peso")
+    } else {
+      alert("Por favor adicione sua altura")
+    }
+  }
   return (
     <View style={styles.containerPage}>
-      <StepIndicator totalSteps={8} currentStep={2} />
+      <StepIndicator totalSteps={8} currentStep={3} />
       <View style={styles.containerContent}>
-        <Text style={styles.mainText}>Qual o seu sexo?</Text>
+        <Text style={styles.mainText}>Qual a sua altura?</Text>
         <View style={styles.containerButtons}>
-          {/* Set the correct "selected" prop based on the value of "genero" */}
-          <CardFlex
-            selected={genero === "Masculino"}
-            content="Masculino"
-            onPress={() => setGenero("Masculino")}
-          />
-          <CardFlex
-            selected={genero === "Feminino"}
-            content="Feminino"
-            onPress={() => setGenero("Feminino")}
+          <InputNumber
+            value={altura}
+            setNumber={setAltura}
+            placeholder={"Digite sua altura em (m)"}
+            maxNumber={2.4}
+            maxNumberErrorMessage="Você é muito grande, até demais 👀"
           />
         </View>
       </View>
       <View style={styles.containerPagination}>
-        <PaginationButtons showNext={true} showPrevious={true} onNextPress={handlePress} />
+        <PaginationButtons
+          showNext={true}
+          showPrevious={true}
+          onPreviousPress={() => handlePreviousPress()}
+          onNextPress={() => handleNextPress()}
+        />
       </View>
     </View>
   )
@@ -61,11 +69,12 @@ const styles = StyleSheet.create({
     gap: 20
   },
   containerButtons: {
-    flexDirection: "column",
-    gap: 10,
+    flexShrink: 1,
     justifyContent: "center",
     alignItems: "center",
-    width: "100%"
+    backgroundColor: "#F4F4F4",
+    width: "100%",
+    gap: 15
   },
   containerPagination: {
     height: 100,
@@ -76,7 +85,7 @@ const styles = StyleSheet.create({
   },
   mainText: {
     fontSize: 24,
-    textAlign: "center",
+    textAlign: "left",
     width: "100%"
   }
 })
