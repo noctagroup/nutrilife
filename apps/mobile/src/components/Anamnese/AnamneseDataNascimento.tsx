@@ -9,10 +9,10 @@ import { useAnamnesis } from "@/context/AmnesisContext"
 
 export default function AnamneseDataNascimento() {
   const router = useRouter()
-  const { setAnamnesisData } = useAnamnesis()
+  const { anamnesisData, setAnamnesisData } = useAnamnesis()
 
   // Lift the date state to AnamneseDataNascimento
-  const [dataNasc, setDataNasc] = useState("")
+  const [dataNasc, setDataNasc] = useState(anamnesisData.dataNasc ? anamnesisData.dataNasc : "")
 
   const handlePress = () => {
     if (dataNasc) {
@@ -25,7 +25,7 @@ export default function AnamneseDataNascimento() {
 
   return (
     <View style={styles.containerPage}>
-      <StepIndicator totalSteps={8} currentStep={1} />
+      <StepIndicator totalSteps={7} currentStep={1} />
       <View style={styles.containerContent}>
         <Text style={styles.mainText}>Qual a sua data de nascimento?</Text>
         <View style={styles.containerButtons}>

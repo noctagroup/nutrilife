@@ -6,6 +6,8 @@ interface AnamnesisData {
   genero: string
   altura: string
   peso: string
+  objetivo: string
+  atividade: string
 }
 
 // Define the shape of the context
@@ -32,7 +34,9 @@ export const AnamnesisProvider = ({ children }: { children: ReactNode }) => {
     dataNasc: "",
     genero: "",
     altura: "",
-    peso: ""
+    peso: "",
+    objetivo: "",
+    atividade: ""
   })
 
   const setAnamnesisData = (data: Partial<AnamnesisData>) => {

@@ -1,25 +1,30 @@
-import { Image, StyleSheet, Text, View } from "react-native"
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 export function CardFlexImage({
   title,
   content,
   image,
-  selected
+  selected,
+  onPress
 }: {
   title: string
   content: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image: any
   selected: boolean
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+  onPress: Function
 }) {
   return (
-    <View style={[styles.card, selected && styles.selectedCard]}>
+    <TouchableOpacity
+      style={[styles.card, selected && styles.selectedCard]}
+      onPress={() => onPress()}>
       <Image style={styles.image} source={image} />
       <View style={styles.content}>
         <Text style={styles.title}>{title}</Text>
         <Text>{content}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 

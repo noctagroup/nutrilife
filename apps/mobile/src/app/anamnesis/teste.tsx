@@ -11,6 +11,8 @@ export default function teste() {
       <Text>Sexo: {anamnesisData.genero} </Text>
       <Text>Altura: {anamnesisData.altura} </Text>
       <Text>Peso: {anamnesisData.peso}</Text>
+      <Text>Objetivo: {anamnesisData.objetivo}</Text>
+      <Text>Atividade: {anamnesisData.atividade}</Text>
     </View>
   )
 }

@@ -10,8 +10,8 @@ import { InputNumber } from "./InputNumber"
 
 export default function AnamnesePeso() {
   const router = useRouter()
-  const { setAnamnesisData } = useAnamnesis()
-  const [peso, setPeso] = useState("")
+  const { anamnesisData, setAnamnesisData } = useAnamnesis()
+  const [peso, setPeso] = useState(anamnesisData.peso ? anamnesisData.peso : "")
 
   const handlePreviousPress = () => {
     router.push("/anamnesis/altura")
@@ -20,14 +20,14 @@ export default function AnamnesePeso() {
   const handleNextPress = () => {
     if (peso) {
       setAnamnesisData({ peso })
-      router.push("/anamnesis/teste")
+      router.push("/anamnesis/objetivo")
     } else {
       alert("Por favor adicione seu peso")
     }
   }
   return (
     <View style={styles.containerPage}>
-      <StepIndicator totalSteps={8} currentStep={4} />
+      <StepIndicator totalSteps={7} currentStep={4} />
       <View style={styles.containerContent}>
         <Text style={styles.mainText}>Qual o seu peso?</Text>
         <View style={styles.containerButtons}>

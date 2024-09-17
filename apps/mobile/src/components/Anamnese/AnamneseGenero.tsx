@@ -9,18 +9,22 @@ import { useAnamnesis } from "@/context/AmnesisContext"
 
 export default function AnamneseGenero() {
   const router = useRouter()
-  const { setAnamnesisData } = useAnamnesis()
+  const { anamnesisData, setAnamnesisData } = useAnamnesis()
 
-  const [genero, setGenero] = useState("Masculino")
+  const [genero, setGenero] = useState(anamnesisData.genero ? anamnesisData.genero : "Masculino")
 
-  const handlePress = () => {
+  const handlePreviousPress = () => {
+    router.push("/anamnesis/dataNascimento")
+  }
+
+  const handleNextPress = () => {
     setAnamnesisData({ genero })
     router.push("/anamnesis/altura")
   }
 
   return (
     <View style={styles.containerPage}>
-      <StepIndicator totalSteps={8} currentStep={2} />
+      <StepIndicator totalSteps={7} currentStep={2} />
       <View style={styles.containerContent}>
         <Text style={styles.mainText}>Qual o seu sexo?</Text>
         <View style={styles.containerButtons}>
@@ -38,7 +42,12 @@ export default function AnamneseGenero() {
         </View>
       </View>
       <View style={styles.containerPagination}>
-        <PaginationButtons showNext={true} showPrevious={true} onNextPress={handlePress} />
+        <PaginationButtons
+          showNext={true}
+          showPrevious={true}
+          onPreviousPress={() => handlePreviousPress()}
+          onNextPress={() => handleNextPress()}
+        />
       </View>
     </View>
   )

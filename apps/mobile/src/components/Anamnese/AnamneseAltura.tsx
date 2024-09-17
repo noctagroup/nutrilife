@@ -10,8 +10,8 @@ import { InputNumber } from "./InputNumber"
 
 export default function AnamneseAltura() {
   const router = useRouter()
-  const { setAnamnesisData } = useAnamnesis()
-  const [altura, setAltura] = useState("")
+  const { anamnesisData, setAnamnesisData } = useAnamnesis()
+  const [altura, setAltura] = useState(anamnesisData.altura ? anamnesisData.altura : "")
 
   const handlePreviousPress = () => {
     router.push("/anamnesis/genero")
@@ -27,7 +27,7 @@ export default function AnamneseAltura() {
   }
   return (
     <View style={styles.containerPage}>
-      <StepIndicator totalSteps={8} currentStep={3} />
+      <StepIndicator totalSteps={7} currentStep={3} />
       <View style={styles.containerContent}>
         <Text style={styles.mainText}>Qual a sua altura?</Text>
         <View style={styles.containerButtons}>

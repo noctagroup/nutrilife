@@ -1,41 +1,68 @@
+import { useRouter } from "expo-router"
+import { useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 
 import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
 import { CardFlexImage } from "@/components/Anamnese/CardFlexImage"
 import { PaginationButtons } from "@/components/Anamnese/NextPrevButtons"
+import { useAnamnesis } from "@/context/AmnesisContext"
 
 export default function AnamneseObjetivo() {
+  const router = useRouter()
+  const { anamnesisData, setAnamnesisData } = useAnamnesis()
+
+  const [objetivo, setObjetivo] = useState(
+    anamnesisData.objetivo ? anamnesisData.objetivo : "Emagrecer"
+  )
+
+  const handlePressNext = () => {
+    setAnamnesisData({ objetivo })
+    router.push("/anamnesis/atividade")
+  }
+
+  const handlePressPrevious = () => {
+    router.push("/anamnesis/peso")
+  }
+
   return (
     <View style={styles.containerPage}>
-      <StepIndicator totalSteps={8} currentStep={5} />
+      <StepIndicator totalSteps={7} currentStep={5} />
       <View style={styles.containerContent}>
         <Text style={styles.mainText}>Qual o seu objetivo?</Text>
         <View style={styles.containerButtons}>
           <CardFlexImage
             title={"Emagrecer"}
             content={"Perder peso de forma saudável"}
-            selected={true}
+            selected={objetivo === "Emagrecer"}
+            onPress={() => setObjetivo("Emagrecer")}
             // eslint-disable-next-line @typescript-eslint/no-require-imports
             image={require("../../assets/images/emagrecer.svg")}
           />
           <CardFlexImage
             title={"Manter o peso"}
             content={"Manter o peso com saúde"}
-            selected={false}
+            selected={objetivo === "ManterPeso"}
+            onPress={() => setObjetivo("ManterPeso")}
             // eslint-disable-next-line @typescript-eslint/no-require-imports
             image={require("../../assets/images/manterpeso.svg")}
           />
           <CardFlexImage
             title={"Ganhar peso"}
             content={"Aumentar a massa magra"}
-            selected={false}
+            selected={objetivo === "GanharPeso"}
+            onPress={() => setObjetivo("GanharPeso")}
             // eslint-disable-next-line @typescript-eslint/no-require-imports
             image={require("../../assets/images/ganharpeso.svg")}
           />
         </View>
       </View>
       <View style={styles.containerPagination}>
-        <PaginationButtons showNext={true} showPrevious={true} />
+        <PaginationButtons
+          showNext={true}
+          showPrevious={true}
+          onPreviousPress={() => handlePressPrevious()}
+          onNextPress={() => handlePressNext()}
+        />
       </View>
     </View>
   )
@@ -58,7 +85,7 @@ const styles = StyleSheet.create({
     gap: 20
   },
   containerButtons: {
-    flexShrink: 1, // Allow shrinking based on its content
+    flexShrink: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F4F4F4",
