@@ -29,7 +29,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack screenOptions={{ headerShown: false }} initialRouteName="anamnesis/index">
       <Stack.Screen name="(home)" />
       <Stack.Screen name="anamnesis" />
       <Stack.Screen name="auth" />

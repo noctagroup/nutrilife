@@ -1,11 +1,10 @@
-import React from "react"
-import { Image, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 
-import InputLogin from "./InputLogin"
-import RedButton from "./RedButton"
+import Footer, { FooterOption } from "./Footer"
 import Header from "./Header"
+import InputLogin from "./InputLogin"
 import OutlinedButton from "./OutlineButton"
-import Footer from "./Footer"
+import RedButton from "./RedButton"
 
 export default function FormularioLogin() {
   return (
@@ -17,8 +16,8 @@ export default function FormularioLogin() {
         <RedButton />
         <OutlinedButton buttonText={`Login pelo\nGoogle`} />
         <View style={{ flexDirection: "row", marginTop: 150 }}>
-          <Footer />
-        </View >
+          <Footer textoFooter={"Não cadastrado?\n"} footerOption={FooterOption.CADASTRO} />
+        </View>
       </View>
     </View>
   )

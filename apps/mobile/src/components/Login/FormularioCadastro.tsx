@@ -1,7 +1,6 @@
-import React from "react"
-import { StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 
-import Footer from "./Footer"
+import Footer, { FooterOption } from "./Footer"
 import Header from "./Header"
 import InputLogin from "./InputLogin"
 import InputNome from "./InputNome"
@@ -19,8 +18,8 @@ export default function FormularioCadastro() {
         <InputLogin placeholder="Confirmar Senha" />
         <RedButton />
         <OutlinedButton buttonText={`Cadastro pelo\nGoogle`} />
-        <View style={{ flexDirection: "row", marginTop: 20 }}>
-          <Footer />
+        <View style={{ flex: 1, flexDirection: "column", marginTop: 20 }}>
+          <Footer textoFooter={"Ja cadastrado?"} footerOption={FooterOption.LOGIN} />
         </View>
       </View>
     </View>
