@@ -1,4 +1,4 @@
-import { TextInput, StyleSheet, TextInputProps, TouchableOpacity, Text } from "react-native"
+import { StyleSheet, Text, TouchableOpacity } from "react-native"
 
 export default function RedButton() {
   return (
