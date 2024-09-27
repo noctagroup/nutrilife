@@ -24,7 +24,6 @@ jobs:
 
       - name: Build and tag Docker image
         run: |
-          cd apps/server
           docker build -t ${{ secrets.DOCKER_USERNAME }}/nutrilife-backend:latest .
           docker tag ${{ secrets.DOCKER_USERNAME }}/nutrilife-backend:latest ${{ secrets.DOCKER_USERNAME }}/nutrilife-backend:${{ github.sha }}
 
