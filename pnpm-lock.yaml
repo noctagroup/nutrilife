@@ -4,12 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    typescript:
-      specifier: ~5.3.3
-      version: 5.3.3
-
 importers:
 
   .:
@@ -137,7 +131,7 @@ importers:
         specifier: ^11.0.14
         version: 11.0.14(@babel/core@7.25.2)(@babel/preset-env@7.25.3(@babel/core@7.25.2))
       typescript:
-        specifier: 'catalog:'
+        specifier: ~5.3.3
         version: 5.3.3
 
   apps/server:

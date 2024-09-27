@@ -7,13 +7,19 @@ const path = require("path")
 const projectRoot = __dirname
 const workspaceRoot = path.resolve(projectRoot, "..", "..")
 
+const defaultConfig = getDefaultConfig(projectRoot)
+
+const config = withTurborepoManagedCache(withMonorepoPaths(defaultConfig))
+
+module.exports = config
+
 /**
  * Add the monorepo paths to the Metro config.
  * This allows Metro to resolve modules from the monorepo.
  *
  * @see https://docs.expo.dev/guides/monorepos/#modify-the-metro-config
  * @param {import('expo/metro-config').MetroConfig} config
- * @returns {import('expo/metro-config').MetroConfig}
+ * @returns {import('expo/metro-config').MetroConfig}`
  */
 function withMonorepoPaths(config) {
   // #1 - Watch all files in the monorepo
@@ -41,7 +47,3 @@ function withTurborepoManagedCache(config) {
 
   return config
 }
-
-const config = withTurborepoManagedCache(withMonorepoPaths(getDefaultConfig(__dirname)))
-
-module.exports = config
