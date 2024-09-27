@@ -1,10 +1,9 @@
 import "react-native-reanimated"
 
-import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native"
 import { Stack } from "expo-router"
 import * as SplashScreen from "expo-splash-screen"
 
-import { useColorScheme } from "@/components/useColorScheme"
+import { AnamnesisProvider } from "@/context/AmnesisContext"
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -12,8 +11,7 @@ export {
 } from "expo-router"
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)"
+  initialRouteName: "(home)"
 }
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -22,18 +20,19 @@ SplashScreen.preventAutoHideAsync()
 export default function RootLayout() {
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
 
-  return <RootLayoutNav />
+  return (
+    <AnamnesisProvider>
+      <RootLayoutNav />
+    </AnamnesisProvider>
+  )
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme()
-
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-      </Stack>
-    </ThemeProvider>
+    <Stack screenOptions={{ headerShown: false }} initialRouteName="anamnesis/index">
+      <Stack.Screen name="(home)" />
+      <Stack.Screen name="anamnesis" />
+      <Stack.Screen name="auth" />
+    </Stack>
   )
 }
