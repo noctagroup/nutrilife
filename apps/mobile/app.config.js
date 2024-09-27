@@ -21,11 +21,11 @@ export default (context) => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    bundleIdentifier: "your.bundle.identifier",
+    bundleIdentifier: "com.noctagroup.nutrilife",
     supportsTablet: true
   },
   android: {
-    package: "your.bundle.identifier",
+    package: "com.noctagroup.nutrilife",
     adaptiveIcon: {
       foregroundImage: "./src/assets/images/adaptive-icon.png",
       backgroundColor: "#ffffff"
