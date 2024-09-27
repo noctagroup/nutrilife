@@ -14,7 +14,7 @@ export default (context) => ({
   splash: {
     image: "./src/assets/images/splash.png",
     resizeMode: "contain",
-    backgroundColor: "#1F104A"
+    backgroundColor: "#ffffff"
   },
   updates: {
     fallbackToCacheTimeout: 0
@@ -28,7 +28,7 @@ export default (context) => ({
     package: "com.noctagroup.nutrilife",
     adaptiveIcon: {
       foregroundImage: "./src/assets/images/adaptive-icon.png",
-      backgroundColor: "#1F104A"
+      backgroundColor: "#ffffff"
     }
   },
   web: {

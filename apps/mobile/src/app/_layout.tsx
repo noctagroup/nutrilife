@@ -9,9 +9,6 @@ import {
 } from "@expo-google-fonts/inter"
 import { SplashScreen, Stack } from "expo-router"
 import { useEffect } from "react"
-import { Platform, SafeAreaView, StyleSheet } from "react-native"
-
-import { AnamnesisProvider } from "@/context/AmnesisContext"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -29,28 +26,12 @@ export default function RootLayout() {
     }
   }, [loaded, error])
 
-  if (!loaded && !error) {
+  if (!(loaded || error)) {
     return null
   }
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <AnamnesisProvider>
-        <Stack screenOptions={{ headerShown: false }} />
-      </AnamnesisProvider>
-    </SafeAreaView>
-  )
+  return <Stack screenOptions={{ headerShown: false }} />
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    fontFamily: Platform.select({
-      native: "Inter_400Regular",
-      web: "Inter"
-    })
-  }
-})
 
 export {
   // Catch any errors thrown by the Layout component.
