@@ -1,6 +1,8 @@
 import "react-native-reanimated"
 
-import { SplashScreen, Stack } from "expo-router"
+// import { SplashScreen } from "expo-router"
+import { Stack } from "expo-router"
+import { SafeAreaView } from "react-native-safe-area-context"
 
 import { AnamnesisProvider } from "@/context/AmnesisContext"
 
@@ -9,29 +11,16 @@ export {
   ErrorBoundary
 } from "expo-router"
 
-export const unstable_settings = {
-  initialRouteName: "(home)"
-}
-
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync()
+// TODO: isso aqui não tá escondendo nunca a splash screen
+// SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
 
   return (
     <AnamnesisProvider>
-      <RootLayoutNav />
+      <Stack />
     </AnamnesisProvider>
-  )
-}
-
-function RootLayoutNav() {
-  return (
-    <Stack screenOptions={{ headerShown: false }} initialRouteName="anamnesis/index">
-      <Stack.Screen name="(home)" />
-      <Stack.Screen name="anamnesis" />
-      <Stack.Screen name="auth" />
-    </Stack>
   )
 }
