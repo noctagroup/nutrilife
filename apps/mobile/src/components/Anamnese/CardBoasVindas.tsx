@@ -42,8 +42,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 40,
-    color: "#FFFFFF",
-    fontFamily: "PatuaOne-Regular"
+    color: "#FFFFFF"
   },
   normalText: {
     fontWeight: "regular",

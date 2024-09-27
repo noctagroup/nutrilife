@@ -31,11 +31,11 @@ export default (context) => ({
       backgroundColor: "#1F104A"
     }
   },
-  // web: {
-  //   bundler: "metro",
-  //   output: "static",
-  //   favicon: "./src/assets/images/favicon.png"
-  // },
+  web: {
+    bundler: "metro",
+    output: "static",
+    favicon: "./src/assets/images/favicon.png"
+  },
   experiments: {
     tsconfigPaths: true,
     typedRoutes: true

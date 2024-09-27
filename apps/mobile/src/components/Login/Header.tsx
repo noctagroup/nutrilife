@@ -1,6 +1,4 @@
-import { View, Image, Text } from "react-native"
-
-
+import { Image, Text, View } from "react-native"
 
 export default function Header() {
   return (
@@ -15,7 +13,7 @@ export default function Header() {
         source={require("../../assets/images/logo-nutrilife.svg")}
         style={{ marginTop: 30 }}
       />
-      <Text style={{ color: "white", fontFamily: "PatuaOne-Regular", fontSize: 16, marginTop: 5 }}>
+      <Text style={{ color: "white", fontSize: 16, marginTop: 5 }}>
         Uma vida saudável começa aqui!{" "}
       </Text>
     </View>
