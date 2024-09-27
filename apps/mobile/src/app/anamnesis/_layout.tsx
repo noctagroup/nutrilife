@@ -5,7 +5,7 @@ import { AnamnesisProvider } from "@/context/AmnesisContext"
 export default function AnamnesisLayout() {
   return (
     <AnamnesisProvider>
-      <Stack />
+      <Stack screenOptions={{ headerShown: false }} />
     </AnamnesisProvider>
   )
 }
