@@ -1,8 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native"
 
-export default function RedButton() {
+interface RedButtonProps {
+  onPress: () => void
+}
+
+export default function RedButton({ onPress }: RedButtonProps) {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.textButton}>Entrar</Text>
     </TouchableOpacity>
   )

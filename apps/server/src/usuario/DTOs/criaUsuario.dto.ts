@@ -5,6 +5,10 @@ export class CriaUsuarioDTO {
   @MaxLength(100)
   nome: string
 
+  @IsString()
+  @MaxLength(100)
+  sobrenome: string
+
   @IsEmail()
   @MaxLength(100)
   email: string
