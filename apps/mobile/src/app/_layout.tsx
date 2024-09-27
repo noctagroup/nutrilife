@@ -9,6 +9,7 @@ import {
 } from "@expo-google-fonts/inter"
 import { SplashScreen, Stack } from "expo-router"
 import { useEffect } from "react"
+import { SafeAreaView, StyleSheet } from "react-native"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -30,8 +31,18 @@ export default function RootLayout() {
     return null
   }
 
-  return <Stack screenOptions={{ headerShown: false }} />
+  return (
+    <SafeAreaView style={styles.container}>
+      <Stack screenOptions={{ headerShown: false }} />
+    </SafeAreaView>
+  )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+})
 
 export {
   // Catch any errors thrown by the Layout component.
