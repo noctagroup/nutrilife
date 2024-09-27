@@ -7,14 +7,14 @@ export default (context) => ({
   name: "NutriLife",
   slug: "nutrilife",
   scheme: "nutrilife",
-  version: "1.0.0",
+  version: "0.1.0",
   orientation: "portrait",
   icon: "./src/assets/images/icon.png",
   userInterfaceStyle: "automatic",
   splash: {
     image: "./src/assets/images/splash.png",
     resizeMode: "contain",
-    backgroundColor: "#ffffff"
+    backgroundColor: "#1F104A"
   },
   updates: {
     fallbackToCacheTimeout: 0
@@ -28,14 +28,14 @@ export default (context) => ({
     package: "com.noctagroup.nutrilife",
     adaptiveIcon: {
       foregroundImage: "./src/assets/images/adaptive-icon.png",
-      backgroundColor: "#ffffff"
+      backgroundColor: "#1F104A"
     }
   },
-  web: {
-    bundler: "metro",
-    output: "static",
-    favicon: "./src/assets/images/favicon.png"
-  },
+  // web: {
+  //   bundler: "metro",
+  //   output: "static",
+  //   favicon: "./src/assets/images/favicon.png"
+  // },
   experiments: {
     tsconfigPaths: true,
     typedRoutes: true
