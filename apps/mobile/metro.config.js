@@ -4,6 +4,9 @@ const { FileStore } = require("metro-cache")
 
 const path = require("path")
 
+const projectRoot = __dirname
+const workspaceRoot = path.resolve(projectRoot, "..", "..")
+
 /**
  * Add the monorepo paths to the Metro config.
  * This allows Metro to resolve modules from the monorepo.
@@ -13,9 +16,6 @@ const path = require("path")
  * @returns {import('expo/metro-config').MetroConfig}
  */
 function withMonorepoPaths(config) {
-  const projectRoot = __dirname
-  const workspaceRoot = path.resolve(projectRoot, "../..")
-
   // #1 - Watch all files in the monorepo
   config.watchFolders = [workspaceRoot]
 
@@ -37,7 +37,7 @@ function withMonorepoPaths(config) {
  * @returns {import('expo/metro-config').MetroConfig}
  */
 function withTurborepoManagedCache(config) {
-  config.cacheStores = [new FileStore({ root: path.join(__dirname, ".cache/metro") })]
+  config.cacheStores = [new FileStore({ root: path.join(projectRoot, ".cache", "metro") })]
 
   return config
 }
