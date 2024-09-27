@@ -11,9 +11,12 @@ export class Usuario {
   nome: string
 
   @Column({ length: 100 })
+  sobrenome: string
+
+  @Column({ length: 100 })
   email: string
 
-  @Column({ length: 50 })
+  @Column({ length: 100 })
   senha: string
 
   @OneToMany(() => Anamnese, (anamnese) => anamnese.usuario)
