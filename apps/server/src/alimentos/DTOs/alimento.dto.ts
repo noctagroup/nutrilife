@@ -1,66 +1,66 @@
-import { IsNumber, IsOptional, IsString, MaxLength } from "class-validator"
+import { IsString, IsNumber, IsOptional, MaxLength } from 'class-validator';
 
 export class AlimentoDTO {
   @IsString()
   @MaxLength(35)
-  alimento: string
+  alimento: string;
 
   @IsNumber()
-  calorias: number
-
-  @IsNumber()
-  @IsOptional()
-  proteinas?: number
+  calorias: number;
 
   @IsNumber()
   @IsOptional()
-  gordura?: number
+  proteinas?: number;
 
   @IsNumber()
   @IsOptional()
-  colesterol?: number
+  gordura?: number;
 
   @IsNumber()
   @IsOptional()
-  carboidratos?: number
+  colesterol?: number;
 
   @IsNumber()
   @IsOptional()
-  fibras?: number
+  carboidratos?: number;
 
   @IsNumber()
   @IsOptional()
-  cinzas?: number
+  fibras?: number;
 
   @IsNumber()
   @IsOptional()
-  magnesio?: number
+  cinzas?: number;
 
   @IsNumber()
   @IsOptional()
-  manganes?: number
+  magnesio?: number;
 
   @IsNumber()
   @IsOptional()
-  fosforo?: number
+  manganes?: number;
 
   @IsNumber()
   @IsOptional()
-  ferro?: number
+  fosforo?: number;
 
   @IsNumber()
   @IsOptional()
-  sodio?: number
+  ferro?: number;
 
   @IsNumber()
   @IsOptional()
-  potassio?: number
+  sodio?: number;
 
   @IsNumber()
   @IsOptional()
-  cobre?: number
+  potassio?: number;
 
   @IsNumber()
   @IsOptional()
-  zinco?: number
+  cobre?: number;
+
+  @IsNumber()
+  @IsOptional()
+  zinco?: number;
 }
