@@ -13,6 +13,10 @@ catalogs:
 importers:
 
   .:
+    dependencies:
+      nutrilife:
+        specifier: 'file:'
+        version: 'file:'
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.1.0
@@ -156,6 +160,9 @@ importers:
       '@nestjs/typeorm':
         specifier: ^10.0.2
         version: 10.0.2(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.1(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.1)(encoding@0.1.13)(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)(typeorm@0.3.20(pg@8.12.0)(sqlite3@5.1.7)(ts-node@10.9.2(@swc/core@1.7.11)(@types/node@20.16.1)(typescript@5.3.3)))
+      '@nutrilife/server':
+        specifier: 'file:'
+        version: 'link:'
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
@@ -1097,7 +1104,7 @@ packages:
 
   '@expo/bunyan@4.0.1':
     resolution: {integrity: sha512-+Lla7nYSiHZirgK+U/uYzsLv/X+HaJienbD5AKX1UQZHYfWaP+9uuQluRB4GrEVWF0GZ7vEVp/jzaOT9k/SQlg==}
-    engines: {node: '>=0.10.0'}
+    engines: {'0': node >=0.10.0}
 
   '@expo/cli@0.18.29':
     resolution: {integrity: sha512-X810C48Ss+67RdZU39YEO1khNYo1RmjouRV+vVe0QhMoTe8R6OA3t+XYEdwaNbJ5p/DJN7szfHfNmX2glpC7xg==}
@@ -4805,6 +4812,10 @@ packages:
 
   nullthrows@1.1.1:
     resolution: {integrity: sha512-2vPPEi+Z7WqML2jZYddDIfy5Dqb0r2fze2zTxNNknZaFpVHU3mFB3R+DWeJWGVx0ecvttSGlJTI+WG+8Z4cDWw==}
+
+  'nutrilife@file:':
+    resolution: {directory: '', type: directory}
+    engines: {node: '>=20.9.0'}
 
   ob1@0.80.10:
     resolution: {integrity: sha512-dJHyB0S6JkMorUSfSGcYGkkg9kmq3qDUu3ygZUKIfkr47XOPuG35r2Sk6tbwtHXbdKIXmcMvM8DF2CwgdyaHfQ==}
@@ -12735,6 +12746,8 @@ snapshots:
     optional: true
 
   nullthrows@1.1.1: {}
+
+  'nutrilife@file:': {}
 
   ob1@0.80.10:
     dependencies:
