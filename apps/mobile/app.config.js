@@ -7,7 +7,7 @@ export default (context) => ({
   name: "NutriLife",
   slug: "nutrilife",
   scheme: "nutrilife",
-  version: "1.0.0",
+  version: "0.1.0",
   orientation: "portrait",
   icon: "./src/assets/images/icon.png",
   userInterfaceStyle: "automatic",
@@ -21,11 +21,11 @@ export default (context) => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    bundleIdentifier: "your.bundle.identifier",
+    bundleIdentifier: "com.noctagroup.nutrilife",
     supportsTablet: true
   },
   android: {
-    package: "your.bundle.identifier",
+    package: "com.noctagroup.nutrilife",
     adaptiveIcon: {
       foregroundImage: "./src/assets/images/adaptive-icon.png",
       backgroundColor: "#ffffff"

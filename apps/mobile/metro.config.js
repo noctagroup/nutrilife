@@ -4,18 +4,24 @@ const { FileStore } = require("metro-cache")
 
 const path = require("path")
 
+const projectRoot = __dirname
+const workspaceRoot = path.resolve(projectRoot, "..", "..")
+
+const defaultConfig = getDefaultConfig(projectRoot)
+
+const config = withTurborepoManagedCache(withMonorepoPaths(defaultConfig))
+
+module.exports = config
+
 /**
  * Add the monorepo paths to the Metro config.
  * This allows Metro to resolve modules from the monorepo.
  *
  * @see https://docs.expo.dev/guides/monorepos/#modify-the-metro-config
  * @param {import('expo/metro-config').MetroConfig} config
- * @returns {import('expo/metro-config').MetroConfig}
+ * @returns {import('expo/metro-config').MetroConfig}`
  */
 function withMonorepoPaths(config) {
-  const projectRoot = __dirname
-  const workspaceRoot = path.resolve(projectRoot, "../..")
-
   // #1 - Watch all files in the monorepo
   config.watchFolders = [workspaceRoot]
 
@@ -37,15 +43,7 @@ function withMonorepoPaths(config) {
  * @returns {import('expo/metro-config').MetroConfig}
  */
 function withTurborepoManagedCache(config) {
-  config.cacheStores = [new FileStore({ root: path.join(__dirname, ".cache/metro") })]
+  config.cacheStores = [new FileStore({ root: path.join(projectRoot, ".cache", "metro") })]
 
   return config
 }
-
-const config = withTurborepoManagedCache(withMonorepoPaths(getDefaultConfig(__dirname)))
-
-// XXX: Resolve our exports in workspace packages
-// https://github.com/expo/expo/issues/26926
-config.resolver.unstable_enablePackageExports = true
-
-module.exports = config

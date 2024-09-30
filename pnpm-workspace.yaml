@@ -1,5 +1,2 @@
 packages:
   - "apps/*"
-
-catalog:
-  typescript: "~5.3.3"
