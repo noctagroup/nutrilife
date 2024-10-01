@@ -44,10 +44,7 @@ export default function FormularioLogin() {
 
       if (response.ok) {
         const responseData = await response.json()
-        console.log(responseData)
         const token = responseData.acess_token
-
-        console.log(token)
 
         await AsyncStorage.setItem("userToken", token)
         router.push("/(home)/")

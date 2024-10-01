@@ -36,4 +36,16 @@ export class AnamneseService {
       }
     })
   }
+
+  async temAnamnese(userId: number): Promise<boolean> {
+    const anamnese = await this.repository.findOne({
+      where: {
+        usuario: {
+          id: userId
+        }
+      }
+    })
+
+    return !!anamnese
+  }
 }

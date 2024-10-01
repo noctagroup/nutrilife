@@ -1,15 +1,53 @@
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useRouter } from "expo-router"
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { useState } from "react"
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 import { StepIndicator } from "@/components/Anamnese/AnamneseStepIndicator"
 import { useAnamnesis } from "@/context/AmnesisContext"
 
 export default function AnamneseFinal() {
   const router = useRouter()
+  const [loading, setLoading] = useState(false)
   const { anamnesisData } = useAnamnesis()
 
-  const handleConfirmarPress = () => {
-    // Logic to confirm data (e.g., submit or save data)
+  const handleConfirmarPress = async () => {
+    setLoading(true)
+
+    const [day, month, year] = anamnesisData.dataNasc.split("/")
+    const dataNasc = new Date(`${year}-${month}-${day}`)
+    const dataNascIso = dataNasc.toISOString()
+
+    try {
+      const response = await fetch("http://localhost:3000/anamnese", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${await AsyncStorage.getItem("userToken")}`
+        },
+        body: JSON.stringify({
+          dataNasc: dataNascIso,
+          genero: anamnesisData.genero,
+          pesoAtual: Number(anamnesisData.peso),
+          altura: Number(anamnesisData.altura),
+          objetivo: anamnesisData.objetivo,
+          atividadeFisica: anamnesisData.atividade
+        })
+      })
+
+      if (response.ok) {
+        setLoading(false)
+        router.push("/(home)/")
+      } else {
+        // Em caso de erro
+        AsyncStorage.removeItem("userToken")
+        router.push("/(home)/")
+      }
+    } catch (err) {
+      throw new Error(err)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleAlterarDados = () => {
@@ -55,10 +93,13 @@ export default function AnamneseFinal() {
 
       {/* Buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.confirmButton} onPress={handleConfirmarPress}>
-          <Text style={styles.buttonText}>Confirmar</Text>
-        </TouchableOpacity>
-
+        {loading ? (
+          <ActivityIndicator size="large" color="#9C121E" />
+        ) : (
+          <TouchableOpacity style={styles.confirmButton} onPress={handleConfirmarPress}>
+            <Text style={styles.buttonText}>Confirmar</Text>
+          </TouchableOpacity>
+        )}
         <TouchableOpacity style={styles.cancelButton} onPress={handleAlterarDados}>
           <Text style={styles.cancelButtonText}>Não, alterar dados</Text>
         </TouchableOpacity>
