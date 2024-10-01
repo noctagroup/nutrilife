@@ -2,9 +2,11 @@
   "name": "@nutrilife/mobile",
   "main": "main.js",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
     "clean": "git clean -xdf .cache .turbo node_modules .expo android ios",
-    "dev": "expo start"
+    "dev": "expo start",
+    "typecheck": "tsc -b"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.3",
