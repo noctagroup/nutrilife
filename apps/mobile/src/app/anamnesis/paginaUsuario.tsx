@@ -34,7 +34,7 @@ export default function AnamneseAtividade() {
       <View style={styles.containerContent}>
         <Text style={styles.mainText}>Próxima refeição:</Text>
         <View style={styles.containerButtons}>
-          {/* CardFlexImage Customizado */}
+          {/* Primeiro Card */}
           <View style={styles.card}>
             <View style={styles.cardLeft}>
               <Text style={styles.cardTitle}>Almoço</Text>
@@ -48,7 +48,6 @@ export default function AnamneseAtividade() {
               <Text style={styles.cardContent}>
                 Arroz, Feijão, Salada de tomate, frango empanado
               </Text>
-              {/* Calorias e horário */}
               <View style={styles.cardFooter}>
                 <Text style={styles.cardFooterText}>
                   546 <Text style={styles.kcalText}>Kcal</Text>
@@ -56,6 +55,19 @@ export default function AnamneseAtividade() {
                 <Text style={styles.kcalText}>12:40</Text>
               </View>
             </View>
+          </View>
+
+          {/* Segundo Card - Meta Calórica Semanal */}
+          <View style={styles.weeklyCard}>
+            <View style={styles.weeklyInfoContainer}>
+              <Text style={styles.weeklyText}>Meta Calorica Semanal</Text>
+              <Text style={styles.weeklyTextHighlight}>2070.99</Text>
+            </View>
+            <View style={styles.weeklyInfoContainer}>
+              <Text style={styles.weeklyText}>Ainda Falta</Text>
+              <Text style={styles.weeklyTextHighlight}>400.90</Text>
+            </View>
+            {/* Aqui é onde o gráfico circular será incluído no futuro */}
           </View>
         </View>
       </View>
@@ -184,5 +196,28 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 16,
     fontWeight: "bold",
+  },
+
+  // Estilos do segundo card (Meta Calórica Semanal)
+  weeklyCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFF",
+    padding: 15,
+    borderRadius: 10,
+    width: "100%",
+    justifyContent: "space-between",
+  },
+  weeklyInfoContainer: {
+    alignItems: "center",
+  },
+  weeklyText: {
+    fontSize: 14,
+    color: "#000",
+  },
+  weeklyTextHighlight: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#9c121e",
   },
 });
