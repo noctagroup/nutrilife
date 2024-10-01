@@ -2,6 +2,7 @@ import {
   Body,
   ConflictException,
   Controller,
+  Get,
   HttpCode,
   Post,
   Req,
@@ -51,5 +52,20 @@ export class AnamneseController {
     } else {
       throw new ConflictException("Uma anamnese com os mesmos dados ja foi criada.")
     }
+  }
+
+  @UseGuards(AuthGuard)
+  @HttpCode(200)
+  @Get("check")
+  async hasAnamnese(@Req() req: AuthenticatedRequest): Promise<{ hasAnamnese: boolean }> {
+    const idUsuario = req.user.sub
+
+    if (!idUsuario) {
+      throw new UnauthorizedException()
+    }
+
+    const temAnamnese = await this.anamneseService.temAnamnese(idUsuario)
+
+    return { hasAnamnese: temAnamnese }
   }
 }

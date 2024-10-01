@@ -1,7 +1,9 @@
 import { useRouter } from "expo-router"
+import { useEffect } from "react"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 import { CardBoasVindas } from "@/components/Anamnese/CardBoasVindas"
+import Authorization from "@/hooks/Authorization"
 
 export default function AnamnesisIndex() {
   const router = useRouter()
@@ -12,6 +14,10 @@ export default function AnamnesisIndex() {
   const handlePress = () => {
     router.push("/anamnesis/dataNascimento")
   }
+
+  useEffect(() => {
+    Authorization.isAuthorized(router)
+  }, [router])
 
   return (
     <View style={styles.containerPage}>
