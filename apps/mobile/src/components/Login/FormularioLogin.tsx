@@ -1,18 +1,32 @@
 import { ActivityIndicator, StyleSheet, View, Text } from "react-native"
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 import Footer, { FooterOption } from "./Footer"
 import Header from "./Header"
 import InputLogin from "./InputLogin"
 import OutlinedButton from "./OutlineButton"
 import RedButton from "./RedButton"
-import { SetStateAction, useState } from "react"
+import { SetStateAction, useEffect, useState } from "react"
+import { useRouter, useLocalSearchParams } from "expo-router";
 
 export default function FormularioLogin() {
+  const router = useRouter()
+  const { message } = useLocalSearchParams();
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
+  useEffect(() => {
+    if (message === 'token_expirado') {
+      setError("Seu token expirou, faça login novamente.");
+    } else if (message === 'token_faltante') {
+      setError("Faça login antes de prosseguir.")
+    }
+  }, [message]);
+  
   const handleFormSubmission = async () => {
     setLoading(true)
     setError("")
@@ -30,7 +44,15 @@ export default function FormularioLogin() {
       })
 
       if (response.ok) {
-        console.log("LOGADO")
+        const responseData = await response.json();
+        console.log(responseData)
+        const token = responseData.acess_token ;
+
+        console.log(token)
+
+      
+        await AsyncStorage.setItem("userToken", token);
+        router.push("/(home)/")
       } else {
         const errorResponse = await response.json()
         setError(errorResponse.message || "O registo falhou.")
