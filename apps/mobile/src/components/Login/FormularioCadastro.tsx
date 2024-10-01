@@ -63,7 +63,7 @@ export default function FormularioCadastro() {
 
   const closeModal = () => {
     setModalVisible(false) // Close the modal
-    router.push("/auth/login") // Navigate to the /auth/login route
+    router.push("/auth") // Navigate to the /auth/login route
   }
 
   return (
