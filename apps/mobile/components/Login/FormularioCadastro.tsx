@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router" // Import useRouter for navigation
+import { useRouter } from "expo-router"
 import { useState } from "react"
 import { ActivityIndicator, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
