@@ -11,6 +11,9 @@ import { AppService } from "./app.service"
 import { AuthModule } from "./auth/auth.module"
 import { Usuario } from "./usuario/usuario.entity"
 import { UsuarioModule } from "./usuario/usuario.module"
+import { RefeicaoModule } from './refeicao/refeicao.module';
+import { Refeicao } from "./refeicao/refeicao.entity"
+import { RefeicaoAlimento } from "./refeicao/refeicaoAlimento.entity"
 
 @Module({
   imports: [
@@ -34,7 +37,7 @@ import { UsuarioModule } from "./usuario/usuario.module"
         username: configService.get<string>("DB_USERNAME"),
         password: configService.get<string>("DB_PASSWORD"),
         database: configService.get<string>("DB_NAME"),
-        entities: [Alimento, Usuario, Anamnese],
+        entities: [Alimento, Usuario, Anamnese, Refeicao, RefeicaoAlimento],
         synchronize: true
       })
     }),
@@ -42,7 +45,8 @@ import { UsuarioModule } from "./usuario/usuario.module"
     AuthModule,
     UsuarioModule,
     AuthModule,
-    AnamneseModule
+    AnamneseModule,
+    RefeicaoModule
   ],
   controllers: [AppController],
   providers: [AppService]
