@@ -44,7 +44,7 @@ export function InputNumber({
   return (
     <View>
       <TextInput
-        style={[styles.input, error ? styles.inputError : undefined]}
+        style={[styles.card, styles.selectedCard]}
         placeholder={placeholder}
         placeholderTextColor="#888" // Define a cor do placeholder
         value={value}
@@ -58,23 +58,27 @@ export function InputNumber({
 }
 
 const styles = StyleSheet.create({
-  input: {
+  card: {
     paddingVertical: 10,
     paddingHorizontal: 10,
     backgroundColor: "#fff",
     justifyContent: "center",
     textAlign: "center",
     width: "100%",
-    height: 50,
+    height: 80,
     borderRadius: 15,
-    borderWidth: 1,
-    borderColor: "#ccc",
+    borderWidth: 0,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 6,
     elevation: 4,
-    fontSize: 18
+    fontSize: 24,
+    outlineStyle: "none"
+  },
+  selectedCard: {
+    borderWidth: 2,
+    borderColor: "#9C121E"
   },
   inputError: {
     borderColor: "red"
