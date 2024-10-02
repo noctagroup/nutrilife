@@ -17,7 +17,7 @@ export class Anamnese {
   @Column({ type: "float" })
   pesoAtual: number
 
-  @Column({ type: "int" })
+  @Column({ type: "float" })
   altura: number
 
   @Column({ type: "text" })

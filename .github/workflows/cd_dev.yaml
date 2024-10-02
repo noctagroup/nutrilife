@@ -31,3 +31,7 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/nutrilife-backend:nightly
           docker push ${{ secrets.DOCKER_USERNAME }}/nutrilife-backend:${{ github.sha }}
+
+      - name: Trigger server update
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" http://167.99.232.38:8080/v1/update

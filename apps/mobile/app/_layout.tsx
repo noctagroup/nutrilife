@@ -11,9 +11,15 @@ import { SplashScreen, Stack } from "expo-router"
 import { useEffect } from "react"
 import { SafeAreaView, StyleSheet } from "react-native"
 
+export { ErrorBoundary } from "expo-router"
+
 SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
+  return <RootLayoutNav />
+}
+
+function RootLayoutNav() {
   const [loaded, error] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -32,19 +38,14 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={RootLayoutNavStyles.container}>
       <Stack screenOptions={{ headerShown: false }} />
     </SafeAreaView>
   )
 }
 
-const styles = StyleSheet.create({
+const RootLayoutNavStyles = StyleSheet.create({
   container: {
     flex: 1
   }
 })
-
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary
-} from "expo-router"

@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router" // Import useRouter for navigation
+import { useRouter } from "expo-router"
 import { useState } from "react"
 import { ActivityIndicator, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
@@ -63,7 +63,7 @@ export default function FormularioCadastro() {
 
   const closeModal = () => {
     setModalVisible(false) // Close the modal
-    router.push("/auth/login") // Navigate to the /auth/login route
+    router.push("/auth") // Navigate to the /auth/login route
   }
 
   return (

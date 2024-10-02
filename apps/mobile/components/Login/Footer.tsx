@@ -19,7 +19,7 @@ export default function Footer({
     if (footerOption === FooterOption.CADASTRO) {
       router.push("/auth/register")
     } else if (footerOption === FooterOption.LOGIN) {
-      router.push("/auth/login")
+      router.push("/auth")
     }
   }
 

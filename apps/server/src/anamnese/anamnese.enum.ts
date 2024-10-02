@@ -1,16 +1,16 @@
 export enum Genero {
-  MASCULINO = "MASCULINO",
-  FEMININO = "FEMININO"
+  MASCULINO = "Masculino",
+  FEMININO = "Feminino"
 }
 
 export enum Objetivo {
-  EMAGRECER = "EMAGRECER",
-  MANTER_PESO = "MANTER_PESO",
-  GANHAR_PESO = "GANHAR_PESO"
+  EMAGRECER = "Emagrecer",
+  MANTER_PESO = "ManterPeso",
+  GANHAR_PESO = "GanharPeso"
 }
 
 export enum AtividadeFisica {
-  LEVE = "LEVE",
-  MODERADA = "MODERADA",
-  INTENSA = "INTENSA"
+  LEVE = "Leve",
+  MODERADA = "Moderada",
+  INTENSA = "Intensa"
 }
