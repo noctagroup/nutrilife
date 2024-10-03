@@ -36,7 +36,7 @@ export default function AnamneseAtividade() {
             selected={atividade === "Leve"}
             onPress={() => setAtividade("Leve")}
             // eslint-disable-next-line @typescript-eslint/no-require-imports
-            image={require("../../assets/images/leve.svg")}
+            image={require("../../assets/images/iconeExerLeve.svg")}
           />
           <CardFlexImage
             title={"Moderada"}
@@ -44,7 +44,7 @@ export default function AnamneseAtividade() {
             selected={atividade === "Moderada"}
             onPress={() => setAtividade("Moderada")}
             // eslint-disable-next-line @typescript-eslint/no-require-imports
-            image={require("../../assets/images/moderado.svg")}
+            image={require("../../assets/images/iconeExerModerado.svg")}
           />
           <CardFlexImage
             title={"Intensa"}
@@ -52,7 +52,7 @@ export default function AnamneseAtividade() {
             selected={atividade === "Intensa"}
             onPress={() => setAtividade("Intensa")}
             // eslint-disable-next-line @typescript-eslint/no-require-imports
-            image={require("../../assets/images/intensa.svg")}
+            image={require("../../assets/images/iconeExerPesado.svg")}
           />
         </View>
       </View>
