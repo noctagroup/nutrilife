@@ -9,11 +9,11 @@ import { AnamneseModule } from "./anamnese/anamnese.module"
 import { AppController } from "./app.controller"
 import { AppService } from "./app.service"
 import { AuthModule } from "./auth/auth.module"
+import { Refeicao } from "./refeicao/refeicao.entity"
+import { RefeicaoModule } from "./refeicao/refeicao.module"
+import { RefeicaoAlimento } from "./refeicao/refeicaoAlimento.entity"
 import { Usuario } from "./usuario/usuario.entity"
 import { UsuarioModule } from "./usuario/usuario.module"
-import { RefeicaoModule } from './refeicao/refeicao.module';
-import { Refeicao } from "./refeicao/refeicao.entity"
-import { RefeicaoAlimento } from "./refeicao/refeicaoAlimento.entity"
 
 @Module({
   imports: [

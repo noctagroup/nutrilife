@@ -1,5 +1,5 @@
 import { Usuario } from "src/usuario/usuario.entity"
-import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 
 import { RefeicaoAlimento } from "./refeicaoAlimento.entity"
 import { TipoRefeicao } from "./tipoRefeicao.enum"
@@ -24,7 +24,7 @@ export class Refeicao {
   })
   alimentos: RefeicaoAlimento[]
 
-  @OneToOne(() => Usuario, (usuario) => usuario, {
+  @ManyToOne(() => Usuario, (usuario) => usuario, {
     cascade: true
   })
   usuario: Usuario

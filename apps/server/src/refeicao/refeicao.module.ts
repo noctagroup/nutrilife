@@ -11,12 +11,8 @@ import { RefeicaoService } from "./refeicao.service"
 import { RefeicaoAlimento } from "./refeicaoAlimento.entity"
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Refeicao, RefeicaoAlimento, Usuario]),
-    UsuarioModule,
-    AuthGuard
-  ],
+  imports: [TypeOrmModule.forFeature([Refeicao, RefeicaoAlimento, Usuario]), UsuarioModule],
   controllers: [RefeicaoController],
-  providers: [RefeicaoService, UsuarioService]
+  providers: [RefeicaoService, UsuarioService, AuthGuard]
 })
 export class RefeicaoModule {}
