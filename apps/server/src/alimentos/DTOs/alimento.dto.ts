@@ -30,15 +30,11 @@ export class AlimentoDTO {
 
   @IsNumber()
   @IsOptional()
-  cinzas?: number
+  calcio?: number
 
   @IsNumber()
   @IsOptional()
   magnesio?: number
-
-  @IsNumber()
-  @IsOptional()
-  manganes?: number
 
   @IsNumber()
   @IsOptional()
@@ -63,4 +59,8 @@ export class AlimentoDTO {
   @IsNumber()
   @IsOptional()
   zinco?: number
+
+  @IsString()
+  @MaxLength(55)
+  grupoAlimentar: string
 }
