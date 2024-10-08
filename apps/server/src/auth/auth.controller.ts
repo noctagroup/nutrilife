@@ -22,6 +22,6 @@ export class AuthController {
 
   @Get("version")
   async checkVersion(): Promise<string> {
-    return "1.0"
+    return "2.0"
   }
 }
