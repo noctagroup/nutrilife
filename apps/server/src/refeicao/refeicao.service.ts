@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common"
 import { InjectRepository } from "@nestjs/typeorm"
+import { Alimento } from "src/alimentos/alimentos.entity" // Import Alimento entity
 import { Usuario } from "src/usuario/usuario.entity"
 import { Repository } from "typeorm"
 
@@ -15,7 +16,9 @@ export class RefeicaoService {
     @InjectRepository(RefeicaoAlimento)
     private readonly refeicaoAlimentoRepository: Repository<RefeicaoAlimento>,
     @InjectRepository(Usuario)
-    private readonly usuarioRepository: Repository<Usuario>
+    private readonly usuarioRepository: Repository<Usuario>,
+    @InjectRepository(Alimento) // Inject Alimento repository
+    private readonly alimentoRepository: Repository<Alimento>
   ) {}
 
   async createRefeicao(dto: CreateRefeicaoDto): Promise<Refeicao> {
@@ -29,17 +32,26 @@ export class RefeicaoService {
     refeicao.tipoRefeicao = dto.type
     refeicao.usuario = usuario
 
-    const alimentos = dto.alimentos.map((alimentoDTO) => {
-      const refeicaoAlimento = new RefeicaoAlimento()
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      refeicaoAlimento.alimento = { id: alimentoDTO.alimentoId } as any
-      refeicaoAlimento.quantidade = alimentoDTO.quantity
-      refeicaoAlimento.refeicao = refeicao
-      return refeicaoAlimento
-    })
+    const alimentos = await Promise.all(
+      dto.alimentos.map(async (alimentoDTO) => {
+        const alimento = await this.alimentoRepository.findOne({
+          where: { id: alimentoDTO.alimentoId }
+        })
+
+        if (!alimento) {
+          throw new Error(`Alimento with id ${alimentoDTO.alimentoId} not found`)
+        }
+
+        const refeicaoAlimento = new RefeicaoAlimento()
+        refeicaoAlimento.alimento = alimento
+        refeicaoAlimento.quantidade = alimentoDTO.quantity
+        refeicaoAlimento.refeicao = refeicao
+
+        return refeicaoAlimento
+      })
+    )
 
     refeicao.alimentos = await this.refeicaoAlimentoRepository.save(alimentos)
-
     return await this.refeicaoRepository.save(refeicao)
   }
 

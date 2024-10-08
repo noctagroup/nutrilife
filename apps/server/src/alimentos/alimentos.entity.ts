@@ -5,11 +5,11 @@ export class Alimento {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({ length: 35 })
+  @Column({ length: 100 })
   @Index()
   alimento: string
 
-  @Column({ type: "int" })
+  @Column({ type: "int", nullable: true })
   calorias: number
 
   @Column({ type: "float", nullable: true })
@@ -34,9 +34,6 @@ export class Alimento {
   magnesio: number
 
   @Column({ type: "float", nullable: true })
-  manganes: number
-
-  @Column({ type: "float", nullable: true })
   fosforo: number
 
   @Column({ type: "float", nullable: true })
@@ -54,6 +51,6 @@ export class Alimento {
   @Column({ type: "float", nullable: true })
   zinco: number
 
-  @Column({ type: "float", nullable: true })
-  vitamina_c: number
+  @Column({ nullable: false, length: 100 })
+  grupoAlimentar: string
 }

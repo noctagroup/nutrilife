@@ -1,5 +1,5 @@
 import { Alimento } from "src/alimentos/alimentos.entity"
-import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 
 import { Refeicao } from "./refeicao.entity"
 
@@ -8,7 +8,7 @@ export class RefeicaoAlimento {
   @PrimaryGeneratedColumn()
   id: number
 
-  @OneToOne(() => Refeicao, (refeicao) => refeicao.alimentos)
+  @ManyToOne(() => Refeicao, (refeicao) => refeicao.alimentos, { onDelete: "CASCADE" })
   refeicao: Refeicao
 
   @ManyToOne(() => Alimento)
