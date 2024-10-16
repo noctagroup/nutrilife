@@ -1,5 +1,7 @@
 import React from "react"
-import { TextInput, StyleSheet, TextInputProps, TouchableOpacity, Text, Image } from "react-native"
+import { Image, StyleSheet, Text, TouchableOpacity } from "react-native"
+
+import google from "../../assets/images/Google.png"
 
 interface OutlinedButtonProps {
   buttonText: string
@@ -8,10 +10,7 @@ interface OutlinedButtonProps {
 export default function OutlinedButton({ buttonText }: OutlinedButtonProps) {
   return (
     <TouchableOpacity style={styles.button}>
-      <Image
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        source={require("../../assets/images/google.svg")}
-      />
+      <Image source={google} style={{ width: 30, height: 30 }} />
       <Text style={styles.textButton}>{buttonText}</Text>
     </TouchableOpacity>
   )
