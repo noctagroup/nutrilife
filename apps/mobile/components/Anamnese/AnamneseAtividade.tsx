@@ -36,7 +36,7 @@ export default function AnamneseAtividade() {
             selected={atividade === "Leve"}
             onPress={() => setAtividade("Leve")}
             // eslint-disable-next-line @typescript-eslint/no-require-imports
-            image={require("../../assets/images/leve.svg")}
+            image={require("../../assets/images/iconeExerLeve.svg")}
           />
           <CardFlexImage
             title={"Moderada"}
