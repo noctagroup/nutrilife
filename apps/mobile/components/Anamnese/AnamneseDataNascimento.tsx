@@ -11,7 +11,6 @@ export default function AnamneseDataNascimento() {
   const router = useRouter()
   const { anamnesisData, setAnamnesisData } = useAnamnesis()
 
-  // Lift the date state to AnamneseDataNascimento
   const [dataNasc, setDataNasc] = useState(anamnesisData.dataNasc ? anamnesisData.dataNasc : "")
 
   const handlePress = () => {
@@ -29,7 +28,6 @@ export default function AnamneseDataNascimento() {
       <View style={styles.containerContent}>
         <Text style={styles.mainText}>Qual a sua data de nascimento?</Text>
         <View style={styles.containerButtons}>
-          {/* Pass the state and setter to the InputData component */}
           <InputData selected={true} date={dataNasc} setDate={setDataNasc} />
         </View>
       </View>
@@ -49,8 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   containerContent: {
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#F4F4F4",
     gap: 20
   },
@@ -61,16 +57,12 @@ const styles = StyleSheet.create({
     gap: 15
   },
   containerPagination: {
-    height: 100,
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20
+    paddingVertical: 20
   },
   mainText: {
-    alignSelf: "center",
-    fontSize: 24,
-    textAlign: "center",
-    width: "100%"
+    fontSize: 24
   }
 })

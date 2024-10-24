@@ -45,8 +45,7 @@ export function InputData({ selected, date, setDate }: InputDataProps) {
         onChangeText={handleDateChange}
         keyboardType="numeric"
         maxLength={10}
-        // Disable orange border or outline on focus
-        onFocus={(e) => (e.target.style.outline = "none")}
+       
       />
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
     </View>
@@ -70,7 +69,6 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 4,
     fontSize: 24,
-    outlineStyle: "none"
   },
   selectedCard: {
     borderWidth: 2,

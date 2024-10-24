@@ -10,7 +10,12 @@ interface OutlinedButtonProps {
 export default function OutlinedButton({ buttonText }: OutlinedButtonProps) {
   return (
     <TouchableOpacity style={styles.button}>
-      <Image source={google} style={{ width: 30, height: 30 }} />
+      <Image
+        source={{
+          uri: "https://res.cloudinary.com/ds7amlveq/image/upload/v1729782757/google_baw1t2.png"
+        }}
+        style={{ width: 30, height: 30.5 }}
+      />
       <Text style={styles.textButton}>{buttonText}</Text>
     </TouchableOpacity>
   )

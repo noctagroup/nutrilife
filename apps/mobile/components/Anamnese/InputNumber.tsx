@@ -21,7 +21,6 @@ export function InputNumber({
   const handleNumberChange = (text: string) => {
     // Permitir apenas números, ".", e ","
     const cleanText = text.replace(/[^0-9.,]/g, "")
-
     // Substituir "," por "." para garantir a consistência no valor numérico
     const formattedText = cleanText.replace(",", ".")
 
@@ -42,9 +41,9 @@ export function InputNumber({
   }
 
   return (
-    <View>
+    <View style={{ width: "100%" }}>
       <TextInput
-        style={[styles.card, styles.selectedCard]}
+        style={[styles.card, styles.selectedCard]} // Certifique-se de que ambos os estilos estão aplicados
         placeholder={placeholder}
         placeholderTextColor="#888" // Define a cor do placeholder
         value={value}
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     textAlign: "center",
-    width: "100%",
+    width: "100%", // Aqui define a largura como 100%
     height: 80,
     borderRadius: 15,
     borderWidth: 0,
@@ -74,7 +73,6 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 4,
     fontSize: 24,
-    outlineStyle: "none"
   },
   selectedCard: {
     borderWidth: 2,

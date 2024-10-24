@@ -61,8 +61,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   containerContent: {
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#F4F4F4",
     gap: 20
   },
@@ -73,16 +71,13 @@ const styles = StyleSheet.create({
     gap: 15
   },
   containerPagination: {
-    height: 100,
     width: "100%",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20
+    paddingVertical: 20
   },
   mainText: {
-    alignSelf: "center",
-    fontSize: 24,
-    textAlign: "center",
-    width: "100%"
+    fontSize: 24
   }
 })
+
